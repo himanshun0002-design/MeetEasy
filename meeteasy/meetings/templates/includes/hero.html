@@ -1,0 +1,23 @@
+<section class="hero">
+    <div class="hero-content">
+        <h1>Connect with Anyone, Anytime</h1>
+        <p>MeetEasy provides crystal-clear video conferencing with screen sharing, recording, and real-time collaboration tools for productive meetings.</p>
+
+        {% if username %}
+            <p><strong>Logged in as:</strong> {{ username }}</p>
+        {% else %}
+            <p style="color:red;">Please login to schedule a meeting</p>
+        {% endif %}
+
+        <div class="hero-buttons">
+            <a href="" class="btn btn-primary btn-large">
+                <i class="fas fa-video"></i> Start Meeting
+            </a>
+            <button class="btn btn-secondary btn-large" id="schedule-btn">
+                <i class="fas fa-calendar-plus"></i> Schedule
+            </button>
+        </div>
+
+        <!-- Optional schedule popup can be handled via JS -->
+    </div>
+</section>

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'Signup.css' %}">
+
+<div class="signup-container">
+    <div class="signup-card">
+        <div class="app-logo">
+            <img src="{% static 'images/logo.png' %}" alt="MeetEasy Logo" class="logo-icon">
+            <h1>MeetEasy</h1>
+        </div>
+
+        <h2 class="signup-title">Create Account</h2>
+        <p class="signup-subtitle">Join thousands of users on MeetEasy</p>
+
+        {% if error %}
+            <div class="error-message">{{ error }}</div>
+        {% endif %}
+
+        <form method="post" class="signup-form">
+            {% csrf_token %}
+            <div class="input-group">
+                <input type="text" name="full_name" placeholder="Full Name" value="{{ form.full_name }}" class="signup-input">
+            </div>
+
+            <div class="input-group">
+                <input type="email" name="email" placeholder="Email Address" value="{{ form.email }}" class="signup-input">
+            </div>
+
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Password" class="signup-input">
+            </div>
+
+            <div class="input-group">
+                <input type="password" name="confirm_password" placeholder="Confirm Password" class="signup-input">
+            </div>
+
+            <button type="submit" class="signup-button">
+                Sign Up
+            </button>
+        </form>
+
+        <p class="login-link">
+            Already have an account? <a href="{% url 'login' %}">Log In</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

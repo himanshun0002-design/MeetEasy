@@ -1,0 +1,23 @@
+<header>
+    <div class="logo">
+        <i class="fas fa-video"></i>
+        <h1>MeetEasy</h1>
+    </div>
+
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <div class="auth-buttons">
+        {% if username %}
+            <span class="username-display">Logged in as: {{ username }}</span>
+        {% else %}
+            <a class="btn btn-outline" href="{% url 'login' %}">Sign In</a>
+            <a class="btn btn-primary" href="{% url 'signup' %}">Sign Up</a>
+        {% endif %}
+    </div>
+</header>
